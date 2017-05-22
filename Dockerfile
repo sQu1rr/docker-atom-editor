@@ -21,12 +21,13 @@ RUN apt-get update && \
       libxss1 \
       libxtst6 \
       python \
+      ssh \
       xdg-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    curl -L https://github.com/atom/atom/releases/download/${ATOM_VERSION}/atom-amd64.deb > /tmp/atom.deb && \
-    dpkg -i /tmp/atom.deb && \
-    rm -f /tmp/atom.deb && \
+    curl -L https://atom.io/download/deb > /tmp/atom-amd64.deb && \
+    dpkg -i /tmp/atom-amd64.deb && \
+    rm -f /tmp/atom-amd64.deb && \
     useradd -d /home/atom -m atom
 
 USER atom
